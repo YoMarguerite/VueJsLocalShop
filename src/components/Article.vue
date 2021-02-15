@@ -9,20 +9,32 @@
       :search="search"
       :custom-filter="filterOnlyCapsText"
     >
-      <template v-slot:top>
-      </template>
-      <template v-slot:body.append>
-        <tr>
-          <td></td>
-          <td colspan="4"></td>
-        </tr>
-      </template>
+       <template v-slot:item.actions="{ item }">
+      <v-icon
+        small
+        class="mr-2"
+        @click="addItem(item)"
+      >
+        mdi-plus
+      </v-icon>
+    </template>
+    <template v-slot:no-data>
+      <v-btn
+        color="primary"
+        @click="initialize"
+      >
+        Reset
+      </v-btn>
+    </template>
+
     </v-data-table>
   </v-container>
 </template>
 
 <script>
 import json from '../assets/data/articles.json'
+import panier from '../assets/data/panier.json'
+
 export default {
   name: "Article",
 
@@ -35,8 +47,15 @@ export default {
         { text: "id", value: "id" },
         { text: "Nom", value: "name" },
         { text: "Description", value: "description" },
-        { text: "Prix", value: "price" } 
+        { text: "Prix", value: "price" },
+        { text: 'Actions', value: 'actions', sortable: false }
       ]
+    }
+  },
+  methods: {
+    addItem (item) {
+      panier.panier.articles.push(item);
+      console.log(panier.panier.articles);
     }
   }
 };
