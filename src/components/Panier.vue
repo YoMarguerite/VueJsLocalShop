@@ -34,15 +34,17 @@
         <v-card-text>
           Prix actuel :
           {{
-            articles.reduce((a, b) => {
-              return a.price + b.price;
-            })
+            articles.length > 0
+              ? articles.reduce((a, b) => {
+                  return a.price + b.price;
+                })
+              : "0"
           }}€
         </v-card-text>
       </v-card>
     </v-row>
     <v-row>
-      <v-btn color="success">
+      <v-btn color="success" :to="'/'">
         Valider la commande
       </v-btn>
     </v-row>
@@ -54,32 +56,34 @@ import { mdiDelete } from "@mdi/js";
 
 export default {
   name: "Panier",
- 
+
   data: () => ({
     icon: mdiDelete,
     select: 0,
     articles: []
   }),
   mounted() {
-    //Récupération des articles
-    this.articles = localStorage.panier
-      ? JSON.parse(localStorage.panier)
-      : [
-          {
-            id: 1,
-            name: "Table basse en bois",
-            description:
-              "une table basse en bois qui vous permettra de passer vos meilleures soirées",
-            price: 80
-          },
-          {
-            id: 2,
-            name: "Etagère en aluminium",
-            description: "Pour posez tout vos livres, que vous ne lirez pas.",
-            price: 30
-          }
-        ];
+    this.articles = localStorage.panier ? JSON.parse(localStorage.panier) : [];
     console.log(this.articles);
+  },
+  methods: {
+    delArticle(article) {
+      if (confirm("Are you sure you want to delete this article ?")) {
+        let index = this.articles.findIndex(article);
+        console.log(index);
+        this.articles.splice(index, 1);
+        let data = JSON.Stringify(this.articles);
+        localStorage.panier = data;
+      }
+    },
+    valid() {
+      let commandes = localStorage.commandes
+        ? JSON.parse(localStorage.commandes)
+        : [];
+      commandes.push(this.article);
+      let data = JSON.Stringify(commandes);
+      localStorage.commandes = data;
+    }
   }
 };
 </script>
