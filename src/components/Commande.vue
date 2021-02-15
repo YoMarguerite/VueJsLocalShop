@@ -1,13 +1,14 @@
+
 <template>
   <v-container>
     <h1>Liste des articles</h1>
     {{displayCommande}}
   <li v-for="(item, index) in indexCommandesDisplay">
        {{ index }} - {{ item }}
-    <p> Article </p>
-  <p> Nom</p>
-     <p> Description</p>
-      <p> Prix</p>
+    <p> Article  </p>
+    <p> Nom</p>
+    <p> Description</p>
+    <p> Prix</p>
 
  </li>
     <button type="button" v-on:click="abbort()">Annuler la commande</button>
@@ -28,11 +29,11 @@ export default {
 data: () => ({
   commandes: jsonFile,
   displayCommande : null,
-  indexCommandesDisplay : [],
+  indexCommandesDisplay : null,
   
   }),
   mounted() {
-    // this.commandes = JSON.parse(this.commandes)
+    this.indexCommandesDisplay = []
      for (var index in jsonFile) {
        if(this.commandes[index].user.name === "Corentin"){
          console.log(index)        
