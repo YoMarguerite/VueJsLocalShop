@@ -9,14 +9,12 @@
       :search="search"
       :custom-filter="filterOnlyCapsText"
     >
-       <template v-slot:item.actions="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="addItem(item)"
-      >
-        mdi-plus
-      </v-icon>
+    <template v-slot:item.actions="{ item }">
+      <v-btn
+      color="primary"
+      @click="addItem(item)">
+      Ajouter au panier
+      </v-btn>
     </template>
     <template v-slot:no-data>
       <v-btn
