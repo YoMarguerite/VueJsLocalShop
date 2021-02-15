@@ -31,7 +31,7 @@ import { mdiDelete } from "@mdi/js";
 
 export default {
   name: "Panier",
-
+ 
   data: () => ({
     icon: mdiDelete,
     select: 0,
