@@ -44,7 +44,7 @@
       </v-card>
     </v-row>
     <v-row>
-      <v-btn color="success" :to="'/'">
+      <v-btn color="success" :to="'/article'">
         Valider la commande
       </v-btn>
     </v-row>
