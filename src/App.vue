@@ -5,13 +5,20 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn text :to="'/panier'">
+        <v-icon>mdi-basket</v-icon>
+        <v-btn
+          color="amber accent-4"
+          fab
+          dark
+          x-small
+          absolute
+          top
+          right
+          v-if="panier.length > 0"
+        >
+          {{ panier.length }}
+        </v-btn>
       </v-btn>
     </v-app-bar>
 
@@ -26,7 +33,10 @@ export default {
   name: "App",
 
   data: () => ({
-    //
-  })
+    panier: []
+  }),
+  mounted() {
+    this.panier = localStorage.panier ? JSON.parse(localStorage.panier) : [];
+  }
 };
 </script>
