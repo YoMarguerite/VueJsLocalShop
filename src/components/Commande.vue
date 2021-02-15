@@ -2,21 +2,19 @@
 <template>
   <v-container>
     <h1>Liste des Commandes</h1>
-      <li v-if="this.panierActual != []"> 
-     <!-- {{this.panierActual}} -->
-<!-- <li  v-for="item in this.panierActual[0]" :key="item.message">   -->
-    <!-- {{this.panierActual}} -->
-      <v-data-table
-      :headers="headers"
-      :items="panierActual"
-      item-key="id"
-      class="elevation-1"
-    >
-    </v-data-table>
- </li>
-<!-- </li> -->
+    
+     <div v-if="commandeActuel">
+        <li  v-for="item in commandeActuel" :key="item.message">  
+              <v-data-table
+              :headers="headers"
+              :items="item"
+              item-key="id"
+              class="elevation-1"
+            >
+            </v-data-table>
+        </li>
+      </div>
  <li v-for="item in this.indexCommandesDisplay" :key="item.message">     
-<!-- {{commandes[item].articles}} -->
       <v-data-table
       :headers="headers"
       :items="commandes[item].articles"
@@ -42,12 +40,12 @@ data: () => ({
   commandes: jsonFile,
   indexCommandesDisplay : null,
   user: null,
-  panierActual: null
+  commandeActuel: null
   }),
   mounted() {
-    this.panierActual = []
-    this.panierActual = JSON.parse(localStorage.getItem('panier'))
-    console.log(this.panierActual[0])
+    this.commandeActuel = []
+    this.commandeActuel = JSON.parse(localStorage.getItem('commandes'))
+    console.log(this.commandeActuel[0])
     this.indexCommandesDisplay = []
     this.local
      for (var index in jsonFile) {
