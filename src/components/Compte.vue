@@ -143,13 +143,19 @@ export default {
   methods: {
     validateConnexion() {
       this.users = JSON.parse(localStorage.users);
+      var valid = 1;
       for (var user in this.users) {
         if (this.loginEmail == this.users[user].email && this.loginPassword == this.users[user].password) {
+          localStorage.userAuth = JSON.stringify(this.users[user]);
           this.$router.push({name: "Article"});
         } else {
-          alert("Connexion non valide")
+          valid = 0;
         }
       }
+      if (valid == 0) {
+        console.log("Connexion refusé");
+      }
+
     },
     validateInscription() {
       var userData = {
@@ -158,6 +164,7 @@ export default {
         email: this.email,
         password: this.password
       };
+      this.tab = 0;
       localStorage.removeItem('users');
       this.users.push(userData);
       localStorage.users = JSON.stringify(this.users);
