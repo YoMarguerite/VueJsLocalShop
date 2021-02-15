@@ -4,7 +4,8 @@
     <h1>Liste des Commandes</h1>
     
      <div v-if="commandeActuel">
-        <li  v-for="item in commandeActuel" :key="item.message">  
+        <div v-for="item in commandeActuel" :key="item.message">  
+          <p> Commande : </p>
               <v-data-table
               :headers="headers"
               :items="item"
@@ -12,18 +13,18 @@
               class="elevation-1"
             >
             </v-data-table>
-        </li>
+        </div>
       </div>
- <li v-for="item in this.indexCommandesDisplay" :key="item.message">     
+ <div v-for="item in this.indexCommandesDisplay" :key="item.message">     
+    <p> Commande : </p>
       <v-data-table
       :headers="headers"
       :items="commandes[item].articles"
       item-key="id"
       class="elevation-1"
     >
-     
     </v-data-table>
- </li>
+ </div>
   </v-container>
 </template>
 
