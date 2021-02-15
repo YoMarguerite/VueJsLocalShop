@@ -1,40 +1,33 @@
 {
-    "0":
-    {
+    "0": {
         "id": 1000,
-        "user":
-            {
-                "name":"Corentin"
-            },
-        "articles":[
-            {
+        "user": {
+            "name": "Corentin"
+        },
+        "articles": [{
                 "id": 1,
                 "name": "Table basse en bois",
-                "description" : "une table basse en bois qui vous permettra de passer vos meilleures soirées",
-                "price": 80 
+                "description": "une table basse en bois qui vous permettra de passer vos meilleures soirées",
+                "price": 80
             },
             {
                 "id": 2,
                 "name": "Etagère en aluminium",
-                "description" : "Pour posez tout vos livres, que vous ne lirez pas.",
+                "description": "Pour posez tout vos livres, que vous ne lirez pas.",
                 "price": 30
             }
         ]
-    }, 
-    "1":
-    {
+    },
+    "1": {
         "id": 2000,
-        "user":
-            {
-            "name":"Paul"
-            },
-        "articles":[
-            {
-                "id": 1,
-                "name": "Table basse en bois",
-                "description" : "une table basse en bois qui vous permettra de passer vos meilleures soirées",
-                "price": 80 
-            }
-        ]
+        "user": {
+            "name": "Corentin"
+        },
+        "articles": [{
+            "id": 1,
+            "name": "Table basse en bois",
+            "description": "une table basse en bois qui vous permettra de passer vos meilleures soirées",
+            "price": 80
+        }]
     }
 }
