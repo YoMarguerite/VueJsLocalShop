@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <h3>PANIER : {{ articles.length }} articles</h3>
       <v-list>
+        <v-subheader>PANIER : {{ articles.length }} articles</v-subheader>
         <v-list-item-group v-model="select" color="primary">
           <v-list-item three-line v-for="(article, i) in articles" :key="i">
             <v-list-item-content>
@@ -18,7 +18,7 @@
                 </v-col>
                 <v-col md="2">
                   <v-list-item-action>
-                    <v-btn color="error">
+                    <v-btn color="error" @click="delArticle(i)">
                       <v-icon>{{ icon }} </v-icon>
                     </v-btn>
                   </v-list-item-action>
@@ -33,18 +33,12 @@
       <v-card fill-width>
         <v-card-text>
           Prix actuel :
-          {{
-            articles.length > 0
-              ? articles.reduce((a, b) => {
-                  return a.price + b.price;
-                })
-              : "0"
-          }}€
+          {{ priceTotal }}€
         </v-card-text>
       </v-card>
     </v-row>
     <v-row>
-      <v-btn color="success" :to="'/'">
+      <v-btn color="success" @click="valid()" :disabled="articles.length === 0">
         Valider la commande
       </v-btn>
     </v-row>
@@ -66,13 +60,26 @@ export default {
     this.articles = localStorage.panier ? JSON.parse(localStorage.panier) : [];
     console.log(this.articles);
   },
+  computed: {
+    priceTotal: function() {
+      if (this.articles.length > 0) {
+        if (this.articles.length > 1) {
+          return this.articles.reduce((a, b) => {
+            return a.price + b.price;
+          });
+        } else {
+          return this.articles[0].price;
+        }
+      } else {
+        return 0;
+      }
+    }
+  },
   methods: {
-    delArticle(article) {
+    delArticle(index) {
       if (confirm("Are you sure you want to delete this article ?")) {
-        let index = this.articles.findIndex(article);
-        console.log(index);
         this.articles.splice(index, 1);
-        let data = JSON.Stringify(this.articles);
+        let data = JSON.stringify(this.articles);
         localStorage.panier = data;
       }
     },
@@ -80,9 +87,12 @@ export default {
       let commandes = localStorage.commandes
         ? JSON.parse(localStorage.commandes)
         : [];
-      commandes.push(this.article);
-      let data = JSON.Stringify(commandes);
+      commandes.push(this.articles);
+      console.log(commandes);
+      let data = JSON.stringify(commandes);
       localStorage.commandes = data;
+      localStorage.panier = "[]";
+      this.$router.push("/");
     }
   }
 };
