@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Article from "../components/Article.vue";
 import Panier from "../components/Panier.vue";
-import Commande from "../components/Commande;vue";
+import Commande from "../components/Commande.vue";
 
 Vue.use(VueRouter);
 
