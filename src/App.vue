@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <v-btn text :to="'/'">
+        <v-btn text :to="'/article'">
           Liste des Articles
         </v-btn>
       </div>

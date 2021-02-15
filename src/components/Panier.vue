@@ -92,7 +92,7 @@ export default {
       let data = JSON.stringify(commandes);
       localStorage.commandes = data;
       localStorage.panier = "[]";
-      this.$router.push("/");
+      this.$router.push("/article");
     }
   }
 };

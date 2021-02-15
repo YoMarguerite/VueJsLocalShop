@@ -2,7 +2,7 @@
 <template>
   <v-container>
     <h1>Liste des Commandes</h1>
-  <!-- <li v-if="this.panierActual != []">  -->
+      <li v-if="this.panierActual != []"> 
      <!-- {{this.panierActual}} -->
 <!-- <li  v-for="item in this.panierActual[0]" :key="item.message">   -->
     <!-- {{this.panierActual}} -->
@@ -13,7 +13,7 @@
       class="elevation-1"
     >
     </v-data-table>
- <!-- </li> -->
+ </li>
 <!-- </li> -->
  <li v-for="item in this.indexCommandesDisplay" :key="item.message">     
 <!-- {{commandes[item].articles}} -->
