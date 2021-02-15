@@ -6,9 +6,11 @@
           Liste des Articles
         </v-btn>
       </div>
-
+       
       <v-spacer></v-spacer>
-
+        <v-btn text :to="'/Commande'">
+        <v-icon>mdi-basket</v-icon>
+      </v-btn>
       <v-btn text :to="'/panier'">
         <v-icon>mdi-basket</v-icon>
       </v-btn>
