@@ -1,0 +1,22 @@
+{
+    "articles":[
+        {
+            "id": 1,
+            "name": "Table basse en bois",
+            "description" : "une table basse en bois qui vous permettra de passer vos meilleures soirées",
+            "price": 80 
+        },
+        {
+            "id": 2,
+            "name": "Etagère en aluminium",
+            "description" : "Pour posez tout vos livres, que vous ne lirez pas.",
+            "price": 30
+        },
+        {
+            "id": 3,
+            "name": "Meuble TV Kyoka",
+            "description": "Avec ce meuble TV, vous gagnerez toutes vos games de FIFA",
+            "price": 75
+        }
+    ]
+}
