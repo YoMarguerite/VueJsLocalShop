@@ -7,14 +7,11 @@ import Compte from "../components/Compte.vue";
 
 Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+    {
         path: "/article",
         name: "Article",
         component: Article,
-        beforeEnter() {
-            // Put the full page URL including the protocol http(s) below
-            window.location.replace("https://www.google.fr/");
-        },
     },
     {
         path: "/Panier",
@@ -22,7 +19,7 @@ const routes = [{
         component: Panier,
     },
     {
-        path: "/JESUISLACommande",
+        path: "/Commande",
         name: "Commande",
         component: Commande,
     },

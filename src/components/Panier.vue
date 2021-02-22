@@ -1,20 +1,20 @@
 <template>
   <v-container>
     <v-row>
-      <v-list class="CL">
+      <v-list>
         <v-subheader>PANIER : {{ articles.length }} articles</v-subheader>
-        <v-list-item-group v-model="select" color="primary" class="CL">
+        <v-list-item-group v-model="select" color="primary">
           <v-list-item three-line v-for="(article, i) in articles" :key="i">
-            <v-list-item-content class="CL">
-              <v-list-item-title class="CL">{{
+            <v-list-item-content>
+              <v-list-item-title>{{
                 article.name
               }}</v-list-item-title>
               <v-row>
-                <v-col md="10" class="CL">
-                  <v-list-item-subtitle class="CL">
+                <v-col md="10">
+                  <v-list-item-subtitle>
                     {{ article.price }} €
                   </v-list-item-subtitle>
-                  <v-list-item-subtitle class="CL">
+                  <v-list-item-subtitle>
                     {{ article.description }}
                   </v-list-item-subtitle>
                 </v-col>
@@ -80,7 +80,7 @@ export default {
   methods: {
     delArticle(index) {
       if (confirm("Are you sure you want to delete this article ?")) {
-        this.articles.push(index, 0);
+        this.articles.splice(index, 1);
         let data = JSON.stringify(this.articles);
         localStorage.panier = data;
       }
@@ -99,8 +99,3 @@ export default {
   },
 };
 </script>
-<style>
-.CL {
-  color: black !important;
-}
-</style>

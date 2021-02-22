@@ -1,7 +1,7 @@
 <template>
-  <div class="bbb">
-    <v-app :dark="true">
-      <v-app-bar app color="primary" dark>
+  <div>
+    <v-app>
+      <v-app-bar app color="primary">
         <div class="d-flex align-center">
           <v-btn text :to="'/article'">
             Liste des Articles
@@ -32,8 +32,3 @@ export default {
   data: () => ({}),
 };
 </script>
-<style>
-.bbb {
-  background-color: back;
-}
-</style>
