@@ -1,18 +1,20 @@
 <template>
   <v-container>
     <v-row>
-      <v-list>
+      <v-list class="CL">
         <v-subheader>PANIER : {{ articles.length }} articles</v-subheader>
-        <v-list-item-group v-model="select" color="primary">
+        <v-list-item-group v-model="select" color="primary" class="CL">
           <v-list-item three-line v-for="(article, i) in articles" :key="i">
-            <v-list-item-content>
-              <v-list-item-title>{{ article.name }}</v-list-item-title>
+            <v-list-item-content class="CL">
+              <v-list-item-title class="CL">{{
+                article.name
+              }}</v-list-item-title>
               <v-row>
-                <v-col md="10">
-                  <v-list-item-subtitle>
+                <v-col md="10" class="CL">
+                  <v-list-item-subtitle class="CL">
                     {{ article.price }} €
                   </v-list-item-subtitle>
-                  <v-list-item-subtitle>
+                  <v-list-item-subtitle class="CL">
                     {{ article.description }}
                   </v-list-item-subtitle>
                 </v-col>
@@ -54,7 +56,7 @@ export default {
   data: () => ({
     icon: mdiDelete,
     select: 0,
-    articles: []
+    articles: [],
   }),
   mounted() {
     this.articles = localStorage.panier ? JSON.parse(localStorage.panier) : [];
@@ -73,12 +75,12 @@ export default {
       } else {
         return 0;
       }
-    }
+    },
   },
   methods: {
     delArticle(index) {
       if (confirm("Are you sure you want to delete this article ?")) {
-        this.articles.splice(index, 1);
+        this.articles.push(index, 0);
         let data = JSON.stringify(this.articles);
         localStorage.panier = data;
       }
@@ -93,7 +95,12 @@ export default {
       localStorage.commandes = data;
       localStorage.panier = "[]";
       this.$router.push("/article");
-    }
-  }
+    },
+  },
 };
 </script>
+<style>
+.CL {
+  color: black !important;
+}
+</style>
