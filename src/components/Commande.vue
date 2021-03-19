@@ -46,7 +46,6 @@ data: () => ({
   mounted() {
     this.commandeActuel = []
     this.commandeActuel = JSON.parse(localStorage.getItem('commandes'))
-    console.log(this.commandeActuel[0])
     this.indexCommandesDisplay = []
     this.local
      for (var index in jsonFile) {
@@ -54,7 +53,6 @@ data: () => ({
          this.indexCommandesDisplay.push(index)
          }
       }
-      console.log(this.indexCommandesDisplay);
   },
   computed: {
       headers () {

@@ -17,6 +17,10 @@
         <v-btn text :to="'/panier'">
           <v-icon>mdi-basket</v-icon>
         </v-btn>
+
+        <v-btn text :to="'/parametre'">
+          <v-icon>mdi-wrench</v-icon>
+        </v-btn>
       </v-app-bar>
 
       <v-main>
@@ -30,5 +34,8 @@ export default {
   name: "App",
 
   data: () => ({}),
+  mounted() {
+    this.$vuetify.theme.dark = JSON.parse(localStorage.darkMode);
+  }
 };
 </script>

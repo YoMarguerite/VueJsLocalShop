@@ -4,6 +4,7 @@ import Article from "../components/Article.vue";
 import Panier from "../components/Panier.vue";
 import Commande from "../components/Commande.vue";
 import Compte from "../components/Compte.vue";
+import Parametre from "../components/Parametre.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
         path: "/Commande",
         name: "Commande",
         component: Commande,
+    },
+    {
+        path: "/parametre",
+        name: "Parametre",
+        component: Parametre,
     },
     {
         path: "/",
