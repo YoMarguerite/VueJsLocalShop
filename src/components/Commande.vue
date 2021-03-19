@@ -4,7 +4,7 @@
 
     <div v-if="commandeActuel">
       <div v-for="item in commandeActuel" :key="item.message">
-        <p>Commande :</p>
+        <p></p>
         <v-data-table
           :headers="headers"
           :items="item"
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div v-for="item in this.indexCommandesDisplay" :key="item.message">
-      <p>Commande :</p>
+      <p></p>
       <v-data-table
         :headers="headers"
         :items="commandes[item].articles"

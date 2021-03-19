@@ -65,15 +65,14 @@ export default {
   }),
   mounted() {
     this.articles = localStorage.panier ? JSON.parse(localStorage.panier) : [];
-    console.log(this.articles);
   },
   computed: {
     priceTotal: function() {
       let result = 0;
       if (this.articles.length > 0) {
         if (this.articles.length > 1) {
-          result = this.articles.reduce((a, b) => {
-            return a.price + b.price;
+          this.articles.forEach(a => {
+            result += a.price;
           });
         } else {
           result = this.articles[0].price;
@@ -95,19 +94,13 @@ export default {
     calculReduction() {
       if (!localStorage.reduction) return 0;
       let round = Math.floor(localStorage.reduction / 100) * 10;
-      console.log(round);
       return round > 40 ? 40 : round;
     },
     valid() {
       let commandes = localStorage.commandes
         ? JSON.parse(localStorage.commandes)
         : [];
-      commandes.push({
-        articles: this.articles,
-        priceTotal: this.priceTotal,
-        reduction: this.calculReduction()
-      });
-      console.log(commandes);
+      commandes.push(this.articles);
       let data = JSON.stringify(commandes);
       localStorage.commandes = data;
       localStorage.panier = "[]";
