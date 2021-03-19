@@ -28,7 +28,7 @@ export default {
   name: "Article",
 
   data: () => ({
-    articles: json.articles,
+    articles: json.articles
   }),
   computed: {
     headers() {
@@ -37,9 +37,9 @@ export default {
         { text: "Nom", value: "name" },
         { text: "Description", value: "description" },
         { text: "Prix", value: "price" },
-        { text: "Actions", value: "actions", sortable: false },
+        { text: "Actions", value: "actions", sortable: false }
       ];
-    },
+    }
   },
   methods: {
     addItem(item) {
@@ -48,8 +48,7 @@ export default {
 
       let data = JSON.stringify(panier);
       localStorage.panier = data;
-    },
-  },
+    }
+  }
 };
 </script>
-

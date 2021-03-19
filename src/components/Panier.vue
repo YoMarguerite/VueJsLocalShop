@@ -6,9 +6,7 @@
         <v-list-item-group v-model="select" color="primary">
           <v-list-item three-line v-for="(article, i) in articles" :key="i">
             <v-list-item-content>
-              <v-list-item-title>{{
-                article.name
-              }}</v-list-item-title>
+              <v-list-item-title>{{ article.name }}</v-list-item-title>
               <v-row>
                 <v-col md="10">
                   <v-list-item-subtitle>
@@ -33,6 +31,12 @@
     </v-row>
     <v-row>
       <v-card fill-width>
+        <v-card-text v-show="calculReduction() > 0">
+          <v-switch
+            v-model="reductionActive"
+            :label="'Appliquer la réduction ' + calculReduction() + '%'"
+          ></v-switch>
+        </v-card-text>
         <v-card-text>
           Prix actuel :
           {{ priceTotal }}€
@@ -57,6 +61,7 @@ export default {
     icon: mdiDelete,
     select: 0,
     articles: [],
+    reductionActive: false
   }),
   mounted() {
     this.articles = localStorage.panier ? JSON.parse(localStorage.panier) : [];
@@ -64,18 +69,20 @@ export default {
   },
   computed: {
     priceTotal: function() {
+      let result = 0;
       if (this.articles.length > 0) {
         if (this.articles.length > 1) {
-          return this.articles.reduce((a, b) => {
+          result = this.articles.reduce((a, b) => {
             return a.price + b.price;
           });
         } else {
-          return this.articles[0].price;
+          result = this.articles[0].price;
         }
-      } else {
-        return 0;
       }
-    },
+      return this.reductionActive
+        ? result - result * (this.calculReduction() / 100)
+        : result;
+    }
   },
   methods: {
     delArticle(index) {
@@ -85,17 +92,30 @@ export default {
         localStorage.panier = data;
       }
     },
+    calculReduction() {
+      if (!localStorage.reduction) return 0;
+      let round = Math.floor(localStorage.reduction / 100) * 10;
+      console.log(round);
+      return round > 40 ? 40 : round;
+    },
     valid() {
       let commandes = localStorage.commandes
         ? JSON.parse(localStorage.commandes)
         : [];
-      commandes.push(this.articles);
+      commandes.push({
+        articles: this.articles,
+        priceTotal: this.priceTotal,
+        reduction: this.calculReduction()
+      });
       console.log(commandes);
       let data = JSON.stringify(commandes);
       localStorage.commandes = data;
       localStorage.panier = "[]";
+      this.reductionActive
+        ? (localStorage.reduction = 0)
+        : (localStorage.reduction = +localStorage.reduction + +this.priceTotal);
       this.$router.push("/article");
-    },
-  },
+    }
+  }
 };
 </script>

@@ -8,30 +8,30 @@ import Compte from "../components/Compte.vue";
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: "/article",
-        name: "Article",
-        component: Article,
-    },
-    {
-        path: "/Panier",
-        name: "Panier",
-        component: Panier,
-    },
-    {
-        path: "/Commande",
-        name: "Commande",
-        component: Commande,
-    },
-    {
-        path: "/",
-        name: "Compte",
-        component: Compte,
-    },
+  {
+    path: "/article",
+    name: "Article",
+    component: Article
+  },
+  {
+    path: "/Panier",
+    name: "Panier",
+    component: Panier
+  },
+  {
+    path: "/Commande",
+    name: "Commande",
+    component: Commande
+  },
+  {
+    path: "/",
+    name: "Compte",
+    component: Compte
+  }
 ];
 
 const router = new VueRouter({
-    routes,
+  routes
 });
 
 export default router;
