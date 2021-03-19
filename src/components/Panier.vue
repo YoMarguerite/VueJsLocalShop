@@ -104,6 +104,7 @@ export default {
       let data = JSON.stringify(commandes);
       localStorage.commandes = data;
       localStorage.panier = "[]";
+      if (localStorage.reduction === undefined) localStorage.reduction = 0;
       this.reductionActive
         ? (localStorage.reduction = 0)
         : (localStorage.reduction = +localStorage.reduction + +this.priceTotal);
