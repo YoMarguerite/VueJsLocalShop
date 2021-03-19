@@ -133,21 +133,24 @@ export default {
     valid: true,
     show1: false,
     loginEmail: "",
-    loginPassword: "",    
+    loginPassword: "",
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    verify: "",
+    verify: ""
   }),
   methods: {
     validateConnexion() {
       this.users = JSON.parse(localStorage.users);
       var valid = 1;
       for (var user in this.users) {
-        if (this.loginEmail == this.users[user].email && this.loginPassword == this.users[user].password) {
+        if (
+          this.loginEmail == this.users[user].email &&
+          this.loginPassword == this.users[user].password
+        ) {
           localStorage.userAuth = JSON.stringify(this.users[user]);
-          this.$router.push({name: "Article"});
+          this.$router.push({ name: "Article" });
         } else {
           valid = 0;
         }
@@ -155,7 +158,6 @@ export default {
       if (valid == 0) {
         console.log("Connexion refusé");
       }
-
     },
     validateInscription() {
       var userData = {
@@ -165,7 +167,7 @@ export default {
         password: this.password
       };
       this.tab = 0;
-      localStorage.removeItem('users');
+      localStorage.removeItem("users");
       this.users.push(userData);
       localStorage.users = JSON.stringify(this.users);
     }

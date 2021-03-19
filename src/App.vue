@@ -8,6 +8,16 @@
           </v-btn>
         </div>
 
+        <v-chip
+          close
+          close-icon="mdi-close"
+          color="orange"
+          v-show="displayChip"
+          @click:close="displayChip = false"
+        >
+          Vous avez {{ reduction() }}% de réduction à utiliser !
+        </v-chip>
+
         <v-spacer></v-spacer>
 
         <v-btn text :to="'/Commande'">
@@ -33,9 +43,18 @@
 export default {
   name: "App",
 
-  data: () => ({}),
+  data: () => ({
+    displayChip: true
+  }),
   mounted() {
     this.$vuetify.theme.dark = JSON.parse(localStorage.darkMode);
+  },
+  methods: {
+    reduction() {
+      if (!localStorage.reduction) return 0;
+      let round = Math.floor(localStorage.reduction / 100) * 10;
+      return round > 40 ? 40 : round;
+    }
   }
 };
 </script>
