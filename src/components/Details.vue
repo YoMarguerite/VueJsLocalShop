@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container v-if="article !== null">
     <v-row>
-      <v-card :show="this.article" width="100%">
+      <v-card width="100%">
         <v-card-title>
           {{ article.name }}
         </v-card-title>
@@ -12,7 +12,7 @@
       </v-card>
     </v-row>
     <v-row>
-      <FAQ></FAQ>
+      <FAQ :id="article.id"></FAQ>
     </v-row>
   </v-container>
 </template>
