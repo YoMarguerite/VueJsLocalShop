@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Article from "../components/Article.vue";
 import Panier from "../components/Panier.vue";
 import Commande from "../components/Commande.vue";
+import Details from "../components/Details.vue";
 import Compte from "../components/Compte.vue";
 import Parametre from "../components/Parametre.vue";
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/Commande",
     name: "Commande",
     component: Commande
+  },
+  {
+    path: "/Details/:article",
+    name: "Details",
+    component: Details
   },
   {
     path: "/parametre",

@@ -11,6 +11,15 @@
         <v-btn color="primary" @click="addItem(item)">
           Ajouter au panier
         </v-btn>
+        <v-btn
+          class="ml-1"
+          fab
+          small
+          color="warning"
+          @click="$router.push('/Details/' + item.name)"
+        >
+          ?
+        </v-btn>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">
@@ -37,7 +46,7 @@ export default {
         { text: "Nom", value: "name" },
         { text: "Description", value: "description" },
         { text: "Prix", value: "price" },
-        { text: "Actions", value: "actions", sortable: false }
+        { text: "", value: "actions", sortable: false }
       ];
     }
   },
