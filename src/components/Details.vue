@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container v-if="article !== null">
     <v-row>
-      <v-card :show="this.article" width="100%">
+      <v-card width="100%">
         <v-card-title>
           {{ article.name }}
         </v-card-title>
@@ -12,17 +12,22 @@
         <Avis></Avis>
       </v-card>
     </v-row>
+    <v-row>
+      <FAQ :id="article.id"></FAQ>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import FAQ from "./FAQ.vue";
 import json from "../assets/data/articles.json";
 import Avis from "../components/Avis.vue";
 
 export default {
   name: "Details",
   components: {
-    Avis
+    Avis,
+    FAQ
   },
   data: () => ({
     article: null
