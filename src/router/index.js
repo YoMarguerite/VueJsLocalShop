@@ -26,7 +26,7 @@ const routes = [
     component: Commande
   },
   {
-    path: "/Details/:article",
+    path: "/Details/:id",
     name: "Details",
     component: Details
   },

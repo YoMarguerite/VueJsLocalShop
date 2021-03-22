@@ -16,7 +16,7 @@
           fab
           small
           color="warning"
-          @click="$router.push('/Details/' + item.name)"
+          @click="$router.push('/Details/' + item.id)"
         >
           ?
         </v-btn>
