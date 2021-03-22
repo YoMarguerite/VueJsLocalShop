@@ -5,6 +5,8 @@ import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$idUser = 1;
+
 new Vue({
   router,
   vuetify,
