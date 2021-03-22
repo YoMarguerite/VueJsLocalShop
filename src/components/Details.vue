@@ -11,15 +11,21 @@
         </v-card-text>
       </v-card>
     </v-row>
+    <v-row>
+      <FAQ></FAQ>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import FAQ from "./FAQ.vue";
 import json from "../assets/data/articles.json";
 
 export default {
   name: "Details",
-
+  components: {
+    FAQ
+  },
   data: () => ({
     article: null
   }),
