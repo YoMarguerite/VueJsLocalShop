@@ -9,6 +9,7 @@
         <v-card-text>
           {{ article.description }}
         </v-card-text>
+        <Avis></Avis>
       </v-card>
     </v-row>
     <v-row>
@@ -20,10 +21,12 @@
 <script>
 import FAQ from "./FAQ.vue";
 import json from "../assets/data/articles.json";
+import Avis from "../components/Avis.vue";
 
 export default {
   name: "Details",
   components: {
+    Avis,
     FAQ
   },
   data: () => ({

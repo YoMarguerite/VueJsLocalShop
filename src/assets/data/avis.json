@@ -1,0 +1,86 @@
+{
+    "articles": {
+        "1": {
+            "1": {
+                "nbEtoile": 0,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "2": {
+                "nbEtoile": 3,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "3": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "4": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "5": {
+                "nbEtoile": 5,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            }
+        },
+        "2": {
+            "1": {
+                "nbEtoile": 0,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "2": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "3": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "4": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "5": {
+                "nbEtoile": 3,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "6": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "7": {
+                "nbEtoile": 5,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            }
+        },
+        "3": {
+            "1": {
+                "nbEtoile": 0,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "2": {
+                "nbEtoile": 5,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "3": {
+                "nbEtoile": 3,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "4": {
+                "nbEtoile": 3,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "5": {
+                "nbEtoile": 3,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "6": {
+                "nbEtoile": 4,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            },
+            "7": {
+                "nbEtoile": 5,
+                "commentaire": "Textarea components are used for collecting large amounts of textual data."
+            }
+        }
+    }
+}
